@@ -22,3 +22,7 @@ def results_drywall():
     answer6 = userdata['answer6']
     dry_total = model.calculate_dry_results(answer1, answer2, answer3, answer4, answer5, answer6)
     return render_template('dry_results.html', dry_total = dry_total)
+
+@app.route('/birthday')
+def results_birth():
+    
