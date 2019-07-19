@@ -24,5 +24,13 @@ def results_drywall():
     return render_template('dry_results.html', dry_total = dry_total)
 
 @app.route('/birthday')
+def birthday():
+    return render_template('birthday.html')
+
+@app.route('/birthday_results', methods=['GET', 'POST'])
 def results_birth():
-    
+    userdata = formopener.dict_from(request.form)
+    firstname = userdata['firstname'].decode('utf-8')
+    lastname = userdata['lastname'].decode('utf-8')
+    enterbd = userdata['enterbd'].decode('utf-8')
+    return render_template('birthday_results.html', firstname = firstname, lastname = lastname, enterbd = enterbd)

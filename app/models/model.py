@@ -15,3 +15,4 @@ def calculate_dry_results(a1, a2, a3, a4, a5, a6):
     elif total_int_values_in_list<100:
         return "God Drywall"
     return "dope dry wall"
+    
