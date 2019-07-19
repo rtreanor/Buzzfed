@@ -34,3 +34,25 @@ def results_birth():
     lastname = userdata['lastname'].decode('utf-8')
     enterbd = userdata['enterbd'].decode('utf-8')
     return render_template('birthday_results.html', firstname = firstname, lastname = lastname, enterbd = enterbd)
+    
+@app.route('/browser')
+def browser():
+    return render_template('browser.html')
+    
+@app.route('/browser_results', methods=['GET', 'POST'])
+def browser_results():
+    userdata = formopener.dict_from(request.form)
+    answer1 = userdata['answer1']
+    answer2 = userdata['answer2']
+    answer3 = userdata['answer3']
+    answer4 = userdata['answer4']
+    answer5 = userdata['answer5']
+    answer6 = userdata['answer6']
+    browser_total = model.calculate_browser_results(answer1, answer2, answer3, answer4, answer5, answer6)
+    return render_template('browser_results.html', browser_total = browser_total)
+
+
+
+@app.route('/nothing')
+def nothing():
+    return render_template('nothing.html')
